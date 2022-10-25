@@ -11,11 +11,14 @@ const { HomeService } = require('../services');
 const { HomeController } = require('../controllers');
 
 //routes
-const { HomeRoutes } = require('../routes/iideandex.routes');
+const { HomeRoutes } = require('../routes/index.routes');
 const Routes = require('../routes');
 
 //models
 const { User, Comment, Idea } = require('../models');
+
+//repositories
+const { UserRepository, IdeaRepository, CommentRepository } = require('../repositories')
 
 const container = createContainer();
 
@@ -39,6 +42,12 @@ container
     Idea: asValue(Idea),
     Comment: asValue(Comment)
 })
+.register({
+    UserRepository: asClass(UserRepository).singleton(),
+    IdeaRepository: asClass(IdeaRepository).singleton(),
+    CommentRepository: asClass(CommentRepository).singleton()
+})
+
 
 module.exports = container;
 
