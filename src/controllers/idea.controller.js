@@ -1,11 +1,9 @@
-const { IdeaController } = require(".");
-
-
 let _ideaService = null;
 
-class ideaController {
-    constructor(ideaService){
-        _ideaService = ideaService;
+class IdeaController {
+    constructor({IdeaService}){
+        _ideaService = IdeaService;
+        console.log(_ideaService)
     }
 
     async get(req, res){
@@ -64,4 +62,4 @@ class ideaController {
 
 }
 
-module.exports = ideaController;
+module.exports = IdeaController;

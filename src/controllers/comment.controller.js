@@ -1,4 +1,3 @@
-
 let _commentService = null;
 
 class CommentController {
@@ -33,7 +32,7 @@ class CommentController {
         return res.send(deleteComment);
     }
 
-    async getIdeaComment(req, res){
+    async getIdeaComments(req, res){
         const { ideaId } = req.params;
 
         const comments = await _commentService.getIdeaComments(ideaId);
@@ -41,7 +40,7 @@ class CommentController {
         return res.send(comments);
     }
 
-    async create(req, res){
+    async createComment(req, res){
         const { body } = req;
         const { ideaId } = req.params;
 

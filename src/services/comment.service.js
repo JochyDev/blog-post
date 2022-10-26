@@ -5,9 +5,9 @@ let _ideaRepository = null;
 
 
 class CommnetService extends BaseRepository{
-    constructor({ CommetRepository, IdeaRepository }){
-        super(CommetRepository);
-        _commetRepository = CommetRepository;
+    constructor({ CommentRepository, IdeaRepository }){
+        super(CommentRepository);
+        _commetRepository = CommentRepository;
         _ideaRepository = IdeaRepository;
     }
 

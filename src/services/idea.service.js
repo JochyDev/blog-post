@@ -2,7 +2,7 @@ const BaseService = require("./base.service");
 
 let _ideaRepository = null; 
 
-class IdeaServie extends BaseService {
+class IdeaService extends BaseService {
     constructor({IdeaRepository}){
         super(IdeaRepository);
         _ideaRepository = IdeaRepository;
@@ -64,4 +64,4 @@ class IdeaServie extends BaseService {
     }
 }
 
-module.exports = IdeaServie;
+module.exports = IdeaService;
