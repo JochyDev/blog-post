@@ -23,11 +23,11 @@ class BaseService {
         return currentEntity;
     }
 
-    async getAll(){
-        return await this.repository.getAll();
+    async getAll(pageSize = 5, pageNum = 1){
+        return await this.repository.getAll(pageSize, pageNum);
     }
 
-    async create(id, entity){
+    async create(entity){
         return await this.repository.create(entity);
     }
 
@@ -46,7 +46,7 @@ class BaseService {
         if(!id){
             const error = new Error();
             error.status = 400;
-            error.message = 'i must be sent';
+            error.message = 'it must be sent';
             throw error;
         }
 
