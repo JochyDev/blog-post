@@ -3,7 +3,6 @@ let _ideaService = null;
 class IdeaController {
     constructor({IdeaService}){
         _ideaService = IdeaService;
-        console.log(_ideaService)
     }
 
     async get(req, res){

@@ -5,13 +5,13 @@ const config = require('../config');
 const app = require('.')
 
 //services
-const { HomeService, UserService, CommentService, IdeaService } = require('../services');
+const { HomeService, UserService, CommentService, IdeaService, AuthService } = require('../services');
 
 //controllers
-const { HomeController, UserController, CommentController, IdeaController } = require('../controllers');
+const { HomeController, UserController, CommentController, IdeaController, AuthController } = require('../controllers');
 
 //routes
-const { HomeRoutes, UserRoutes, IdeaRoutes, CommentRoutes } = require('../routes/index.routes');
+const { HomeRoutes, UserRoutes, IdeaRoutes, CommentRoutes, AuthRoutes } = require('../routes/index.routes');
 const Routes = require('../routes');
 
 //models
@@ -33,18 +33,21 @@ container
     UserService: asClass(UserService).singleton(),
     CommentService: asClass(CommentService).singleton(),
     IdeaService: asClass(IdeaService).singleton(),
+    AuthService: asClass(AuthService).singleton(),
 })
 .register({
     HomeController: asClass(HomeController.bind(HomeController)).singleton(),
     UserController: asClass(UserController.bind(UserController)).singleton(),
     CommentController: asClass(CommentController.bind(CommentController)).singleton(),
     IdeaController: asClass(IdeaController.bind(IdeaController)).singleton(),
+    AuthController: asClass(AuthController.bind(AuthController)).singleton()
 })
 .register({
     HomeRoutes: asFunction(HomeRoutes).singleton(),
     UserRoutes: asFunction(UserRoutes).singleton(),
     IdeaRoutes: asFunction(IdeaRoutes).singleton(),
     CommentRoutes: asFunction(CommentRoutes).singleton(),
+    AuthRoutes: asFunction(AuthRoutes).singleton()
 })
 .register({
     User: asValue(User),
@@ -59,6 +62,5 @@ container
 
 
 module.exports = container;
-
 
 
